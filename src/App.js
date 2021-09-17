@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useEffect } from 'react'
 import './App.css';
+import { BrowserRouter as Router, Route, Redirect ,useHistory  } from 'react-router-dom'
+import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-keepalive-router'
+import Index from './components/index';
+import List from './components/list'
+import Detail from './components/detail'
 
-function App() {
+const App = () => {
+  useEffect(()=>{
+    /* 增加缓存监听器 */
+    addKeeperListener((history,cacheKey)=>{
+      debugger
+      if(history)console.log('当前激活状态缓存组件：'+ cacheKey )
+    })
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+      <KeepaliveRouterSwitch>
+          <Route path={'/index'} component={Index} ></Route>
+          <Route path={'/list'} component={List} ></Route>
+          { /* 我们将详情页加入缓存 */ }
+          <KeepaliveRoute path={'/detail'} component={ Detail } ></KeepaliveRoute>
+          <Redirect from='/*' to='/index' />
+       </KeepaliveRouterSwitch>
+      </Router>
     </div>
   );
 }
