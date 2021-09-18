@@ -1,9 +1,10 @@
 import React   from 'react'
 
-import './style.less'
+import './style.css'
 import { keepaliveLifeCycle } from 'react-keepalive-router'
 console.log(keepaliveLifeCycle)
 
+// 生命周期好像没有生效
 @keepaliveLifeCycle
 class Index extends React.Component{
 
@@ -12,6 +13,7 @@ class Index extends React.Component{
         unActivedNumber:0
     }
     actived(){
+        console.log(111111,'actived')
         this.setState({
             activedNumber:this.state.activedNumber + 1
         })
@@ -26,7 +28,6 @@ class Index extends React.Component{
         return <div  style={{ marginTop :'50px' }}  >
            <div> 页面 actived 次数： {activedNumber} </div>
            <div> 页面 unActived 次数：{unActivedNumber} </div>
-
         </div>
     }
 }

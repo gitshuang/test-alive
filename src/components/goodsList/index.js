@@ -1,7 +1,7 @@
 import React from 'react'
 import { listData } from './mock'
 
-import './index.less'
+import './index.css'
 
 
 class Index extends React.Component{
