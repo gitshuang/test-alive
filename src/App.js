@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, useHistory  } from 'react-router-dom'
-import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from 'react-keepalive-router'
+import { KeepaliveRouterSwitch ,KeepaliveRoute ,addKeeperListener } from './react-keepalive-router'
 // import Index from './components/index';
 // import Detail from './components/detail'
 import List from './components/lifecycle'
@@ -44,9 +44,10 @@ const App = () => {
   },[])
   return (
     <div className="App">
+      <div id="container">容器</div>
      <Router>
      <Meuns/>
-      <KeepaliveRouterSwitch>
+      <KeepaliveRouterSwitch withoutRoute>
           <Route path={'/index'} component={Index} ></Route>
           <KeepaliveRoute path={'/list2'} component={List2} scroll />
           <Route path={'/list'} component={List} ></Route>

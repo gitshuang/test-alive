@@ -77,6 +77,7 @@ const hasJsxRuntime = (() => {
   }
 })();
 
+console.log(paths.appNodeModules,'paths.appNodeModules==================')
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
@@ -393,7 +394,7 @@ module.exports = function (webpackEnv) {
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
-              include: paths.appSrc,
+              include: [paths.appSrc,`${paths.appNodeModules}/react-keepalive-router`],
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(

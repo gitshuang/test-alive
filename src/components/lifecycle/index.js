@@ -1,7 +1,7 @@
 import React   from 'react'
 
 import './style.css'
-import { keepaliveLifeCycle } from 'react-keepalive-router'
+import { keepaliveLifeCycle } from '../../react-keepalive-router'
 console.log(keepaliveLifeCycle)
 
 // 生命周期好像没有生效

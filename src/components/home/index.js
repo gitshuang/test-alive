@@ -1,7 +1,7 @@
 //todo
 import React from 'react'
 import './index.css'
-import { useCacheDispatch } from 'react-keepalive-router'
+import { useCacheDispatch } from '../../react-keepalive-router'
 
 const Index = ()=>{
     const dispatch = useCacheDispatch()
